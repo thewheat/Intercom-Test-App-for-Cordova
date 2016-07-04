@@ -21,3 +21,8 @@
 - In the app, in the settings page configure
    - Secure Mode Secret Key if using secure Mode
    - GCM Sender ID if using Android push notifications/messages
+
+
+## Screens
+
+![screens](/screenshots/screens.gif)
