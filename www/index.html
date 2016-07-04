@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Intercom Test App</title>
+    </head>
+    <body class="container">
+        <div class="app">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation"><a href="#login-panel"      aria-controls="login-panel"      role="tab" data-toggle="tab">Login</a></li>
+              <li role="presentation"><a href="#attributes-panel" aria-controls="attributes-panel" role="tab" data-toggle="tab">Attributes</a></li>
+              <li role="presentation"><a href="#events-panel"     aria-controls="events-panel"     role="tab" data-toggle="tab">Events</a></li>
+              <li role="presentation"><a href="#misc-panel"       aria-controls="misc-panel"       role="tab" data-toggle="tab">Misc</a></li>
+              <li role="presentation"><a href="#settings-panel"   aria-controls="settings-panel"   role="tab" data-toggle="tab">Settings</a></li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="login-panel">
+                <div class="well">
+                  <form>
+                    <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="userid">User ID</label>
+                      <input type="text" class="form-control" id="userid" placeholder="user_id">
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Name</label>
+                      <input type="text" class="form-control" id="name" placeholder="name">
+                    </div>
+                    <div class="btn-group">
+                      <input type="button" class="btn btn-default btn-primary" id="login" value="Login"/>
+                      <input type="button" class="btn btn-default btn-info" id="loginUnidentified" value="Login Unidentified"/>
+                      <input type="button" class="btn btn-default btn-danger" id="logout" value="Logout"/>
+                    </div>
+                  </form>
+                  <hr>
+                  <div class="btn-group">
+                    <input type="button" class="btn btn-default" id="showComposer" value="New Message"/>
+                    <input type="button" class="btn btn-default" id="showConversations" value="Conversations"/>
+                  </div>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="attributes-panel">
+                <div class="well">
+                  <form>
+                    <div class="form-group">
+                      <label for="customDataName">Name</label>
+                      <input type="text" class="form-control" id="customDataName" placeholder="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="customDataValue">Value</label>
+                      <input type="text" class="form-control" id="customDataValue" placeholder="value">
+                    </div>
+                    <div class="form-group">
+                      <label> <input type="radio" name="customDataType" id="customDataTypeCustom"   value="custom"> Custom (e.g. username)</label>
+                      <label> <input type="radio" name="customDataType" id="customDataTypeStandard" value="standard"> Standard (e.g. name)</label>
+                    </div>
+                    <input type="button" class="btn btn-default btn-primary" id="updateAttribute" value="Update Attribute"/>
+                  </form>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="events-panel">
+                <div class="well">
+                  <form>
+                    <div class="form-group">
+                      <label for="eventName">Event Name</label>
+                      <input type="text" class="form-control" id="eventName" placeholder="event name">
+                    </div>
+                    <div class="form-group">
+                      <label for="eventMetadataName">Metadata Name</label>
+                      <input type="text" class="form-control" id="eventMetadataName" placeholder="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="eventMetadataValue">Metadata Value</label>
+                      <input type="text" class="form-control" id="eventMetadataValue" placeholder="value">
+                    </div>
+                    <input type="button" class="btn btn-default btn-primary" id="submitEvent" value="Submit Event"/>
+                  </form>
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="misc-panel">
+                <div class="well">
+                  <h3>Visibility</h3>
+                  <div class="btn-group">
+                    <input type="button" class="btn btn-default" id="setVisibilityHide" value="Hide"/>
+                    <input type="button" class="btn btn-default" id="setVisibilityShow" value="Show"/>
+                  </div>
+
+                  <hr>
+                  <h3>Position</h3>
+                  <div class="quad">
+                    <div class="btn-group">
+                      <input type="button" class="half btn btn-default" id="setPositionTopLeft" value="Top Left"/>
+                      <input type="button" class="half btn btn-default" id="setPositionTopRight" value="Top Right"/>
+                    </div>
+                    <div class="btn-group">
+                      <input type="button" class="half btn btn-default" id="setPositionBottomLeft" value="Bottom Left"/>
+                      <input type="button" class="half btn btn-default" id="setPositionBottomRight" value="Bottom Right"/>
+                    </div>
+                  </div>
+                  <br style='clear: both'/>
+                </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="settings-panel">
+                <div class="well">
+                  <form>
+                    <!-- <div class="form-group">
+                      <label for="settingsAppID">App ID</label>
+                      <input type="text" class="form-control" id="settingsAppID" placeholder="app id">
+                    </div>
+                    <div class="form-group">
+                      <label for="settingsAPIKey">SDK API Key</label>
+                      <input type="text" class="form-control" id="settingsAPIKey" placeholder="sdk api key">
+                    </div> -->
+                    <div class="form-group">
+                      <label for="settingsSecureMode">Secure Mode Secret Key</label>
+                      <input type="text" class="form-control" id="settingsSecureMode" placeholder="secret key">
+                      <h5>Note: This should never been exposed/calculated client side due to security reasons. Only done in this instance for easier testing</h5>
+                    </div>
+                    <div class="form-group">
+                      <label for="settingsGCM">Android GCM Sender ID</label>
+                      <input type="text" class="form-control" id="settingsGCM" placeholder="gcm sender id">
+                    </div>
+                    <input type="button" class="btn btn-default btn-primary" id="saveSettings" value="Save Settings"/>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="well">
+              <h3>Log</h3><input type="button" class="btn btn-default" id="clearLogs" value="Clear Logs"/>
+              <div id="log"></div>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/jssha256.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
