@@ -26,16 +26,7 @@
   padding: 0.5em;
 }
 
-.quad .btn-group{
-  display:block;
-  clear:both;
-}
-.quad:after{
-  clear: both;
-}
-.btn.half{
-  width: 8em;
-}
+
 
 #log{
   text-align: left;

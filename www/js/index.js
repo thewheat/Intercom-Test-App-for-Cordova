@@ -177,18 +177,11 @@ var app = {
       app.saveSetting('LAST_customDataType', app.getAttributeType());
       intercom.updateUser(data, app.callbackSuccess, app.callbackFail);
     },
-    setVisibilityHide: function(){app.log("setVisibilityHide"); intercom.setVisibility(intercom.GONE);   },
-    setVisibilityShow: function(){app.log("setVisibilityShow"); intercom.setVisibility(intercom.VISIBLE);},
-    setPosition: function(pos){
-      app.log("Set position: " + pos);
-      app.setVisibilityHide();
-      intercom.setPreviewPosition(pos);
-      app.setVisibilityShow();
-    },
-    setPositionBottomRight: function(){ app.setPosition(intercom.BOTTOM_RIGHT);},
-    setPositionBottomLeft:  function(){ app.setPosition(intercom.BOTTOM_LEFT); },
-    setPositionTopRight:    function(){ app.setPosition(intercom.TOP_RIGHT);   },
-    setPositionTopLeft:     function(){ app.setPosition(intercom.TOP_LEFT);    },
+    setVisibilityHide: function(){app.log("setInAppMessageVisibilityHide"); intercom.setInAppMessageVisibility(intercom.GONE);   },
+    setVisibilityShow: function(){app.log("setInAppMessageVisibilityShow"); intercom.setInAppMessageVisibility(intercom.VISIBLE);},
+    setLauncherHide: function(){app.log("setLauncherHide"); intercom.setLauncherVisibility(intercom.GONE);   },
+    setLauncherShow: function(){app.log("setLauncherShow"); intercom.setLauncherVisibility(intercom.VISIBLE);},
+    setMessengerShow: function(){ app.log("setMessengerShow"); intercom.displayMessenger(); },
     showComposer: function(str){
       app.log("showComposer");
       intercom.displayMessageComposer(app.callbackSuccess, app.callbackFail);
@@ -229,10 +222,9 @@ var app = {
         $("#showConversations").click(this.showConversations);
         $("#setVisibilityHide").click(this.setVisibilityHide);
         $("#setVisibilityShow").click(this.setVisibilityShow);
-        $("#setPositionBottomRight").click(this.setPositionBottomRight);
-        $("#setPositionBottomLeft").click(this.setPositionBottomLeft);
-        $("#setPositionTopRight").click(this.setPositionTopRight);
-        $("#setPositionTopLeft").click(this.setPositionTopLeft);
+        $("#setLauncherHide").click(this.setLauncherHide);
+        $("#setLauncherShow").click(this.setLauncherShow);
+        $("#setMessengerShow").click(this.setMessengerShow);
         $("#saveSettings").click(this.saveSettings);
         $("#clearLogs").click(this.clearLogs);
     },
