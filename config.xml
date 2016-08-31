@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.thewheatfield.cordova.intercomTestApp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Intercom Test App</name>
+<widget id="org.thewheatfield.cordova.intercomTestApp.1x" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Intercom 1.x</name>
     <description>
         A sample Intercom Test App using the Intercom Cordova plugin
     </description>
