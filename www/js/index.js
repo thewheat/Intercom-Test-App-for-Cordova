@@ -230,6 +230,40 @@ var app = {
     },
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+        // example from https://github.com/intercom/phonegap-plugin-push/blob/master/docs/EXAMPLES.md
+        var push = PushNotification.init({
+            android: {
+            },
+            browser: {
+                pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+            },
+            ios: {
+                alert: "true",
+                badge: "true",
+                sound: "true"
+            },
+            windows: {}
+        });
+
+        push.on('registration', function(data) {
+          app.log("PUSH registration: "  + data.registrationId, data);
+        });
+
+        push.on('notification', function(data) {
+          app.log("PUSH notification: ", data);
+            // data.message,
+            // data.title,
+            // data.count,
+            // data.sound,
+            // data.image,
+            // data.additionalData
+        });
+
+        push.on('error', function(e) {
+          app.log("PUSH error: ", e);
+            // e.message
+        });
     },
     receivedEvent: function(id) {
       app.readConfig();
