@@ -182,6 +182,7 @@ var app = {
     setLauncherHide: function(){app.log("setLauncherHide"); intercom.setLauncherVisibility(intercom.GONE);   },
     setLauncherShow: function(){app.log("setLauncherShow"); intercom.setLauncherVisibility(intercom.VISIBLE);},
     setMessengerShow: function(){ app.log("setMessengerShow"); intercom.displayMessenger(); },
+    showUnreadCount: function(){ app.log("showUnreadCount"); intercom.unreadConversationCount(function(count){ alert("Unread count: " + count); },app.callbackFail); },
     showComposer: function(str){
       app.log("showComposer");
       intercom.displayMessageComposer(app.callbackSuccess, app.callbackFail);
@@ -225,6 +226,7 @@ var app = {
         $("#setLauncherHide").click(this.setLauncherHide);
         $("#setLauncherShow").click(this.setLauncherShow);
         $("#setMessengerShow").click(this.setMessengerShow);
+        $("#showUnreadCount").click(this.showUnreadCount);
         $("#saveSettings").click(this.saveSettings);
         $("#clearLogs").click(this.clearLogs);
     },
