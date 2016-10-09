@@ -29,6 +29,6 @@
     <preference name="intercom-ios-api-key" value="YOUR_IOS_SDK_API_KEY" />
     <preference name="intercom-android-api-key" value="YOUR_ANDROID_SDK_API_KEY" />
     <preference name="intercom-android-sender-id" value="YOUR_SENDER_ID"/>
-    <plugin name="cordova-plugin-intercom" spec="~3.0.9" />
+    <plugin name="cordova-plugin-intercom" spec="~3.0.12" />
     <plugin name="cordova-plugin-device" spec="~1.1.2" />
 </widget>
