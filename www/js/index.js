@@ -11,7 +11,6 @@ var app = {
       app.saveSetting('APP_ID', $("#settingsAppID").val());
       app.saveSetting('SDK_API_KEY', $("#settingsAPIKey").val());
       app.saveSetting('SECURE_SECRET_KEY', $("#settingsSecureMode").val());
-      app.saveSetting('GCM_SENDER_ID', $("#settingsGCM").val());
     },
     saveSetting: function(key, value){
       var storage = window.localStorage;
@@ -20,14 +19,10 @@ var app = {
     getSecret: function(){
       return app.getSetting('SECURE_SECRET_KEY');
     },
-    getGCMSenderID: function(){
-      return app.getSetting('GCM_SENDER_ID');
-    },
     loadSettings: function(){
       app.loadSetting('settingsAppID', 'APP_ID');
       app.loadSetting('settingsAPIKey', 'SDK_API_KEY');
       app.loadSetting('settingsSecureMode', 'SECURE_SECRET_KEY');
-      app.loadSetting('settingsGCM', 'GCM_SENDER_ID');
     },
     loadPreviousEntries: function(){
       app.loadSetting('email', 'LAST_email');
@@ -144,13 +139,7 @@ var app = {
         app.log("login secure success = " + d);
         intercom.registerIdentifiedUser(data, function(d1){
           app.log("login registered success = " + d1);
-            var gcm = app.getGCMSenderID();
-            if(gcm){
-              intercom.registerForPush(gcm, function(d2){ app.log("GCM registered" , d2);}, app.callbackFail);
-            }
-            else{
-              intercom.registerForPush(     function(d2){ app.log("Push registered", d2);}, app.callbackFail);
-            }
+          intercom.registerForPush(     function(d2){ app.log("Push registered", d2);}, app.callbackFail);
         }, app.callbackFail);
       }, app.callbackFail);
     },

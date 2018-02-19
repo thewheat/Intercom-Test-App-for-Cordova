@@ -17,7 +17,7 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="android-minSdkVersion" value="15" />
+        <preference name="android-minSdkVersion" value="19" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -26,10 +26,10 @@
     <preference name="intercom-app-id" value="YOUR_APP_ID" />
     <preference name="intercom-ios-api-key" value="YOUR_IOS_SDK_API_KEY" />
     <preference name="intercom-android-api-key" value="YOUR_ANDROID_SDK_API_KEY" />
-    <preference name="intercom-android-sender-id" value="YOUR_SENDER_ID" />
-    <engine name="android" spec="^5.1.1" />
-    <engine name="ios" spec="~4.1.1" />
-    <plugin name="cordova-plugin-device" spec="~1.1.2" />
-    <plugin name="cordova-plugin-intercom" spec="^3.2.2" />
+    <preference name="intercom-android-push-type" value="FCM" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-device" spec="~1.1.2" />
+    <plugin name="cordova-plugin-intercom" spec="^5.0.2" />
+    <engine name="ios" spec="^4.5.4" />
+    <engine name="android" spec="^7.0.0" />
 </widget>
