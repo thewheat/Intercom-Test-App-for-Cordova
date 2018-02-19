@@ -1,0 +1,23 @@
+{
+  "name": "org.thewheatfield.cordova.intercomtestapp",
+  "version": "0.0.1",
+  "displayName": "Intercom Test App",
+  "cordova": {
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-device": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-intercom": {}
+    }
+  },
+  "dependencies": {
+    "cordova-android": "^7.0.0",
+    "cordova-ios": "^4.5.4",
+    "cordova-plugin-device": "~1.1.2",
+    "cordova-plugin-intercom": "^5.0.2",
+    "cordova-plugin-whitelist": "1"
+  }
+}
